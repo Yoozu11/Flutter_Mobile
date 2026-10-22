@@ -130,7 +130,7 @@ class _ExplorePageState extends State<ExplorePage> {
   String type = 'all';
   final types = const ['all', 'fire', 'water', 'grass', 'electric', 'psychic', 'dragon', 'ghost', 'fairy', 'dark', 'ice', 'fighting', 'normal', 'bug', 'poison', 'ground', 'rock', 'flying', 'steel'];
   @override
-  void initState() { super.initState(); all = api.list(); }
+  void initState() { super.initState(); all = api.list(); }q
   @override
   void dispose() { controller.dispose(); api.dispose(); super.dispose(); }
   void pickType(String selected) { setState(() { type = selected; all = selected == 'all' ? api.list() : api.byType(selected); }); }
