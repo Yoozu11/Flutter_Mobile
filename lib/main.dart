@@ -213,7 +213,7 @@ class PokemonTile extends StatelessWidget {
     child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(22), border: Border.all(color: const Color(0xFF27344A))),
       child: Stack(children: [
         Positioned(top: 12, right: 11, child: Text(tag(entry.id), style: const TextStyle(color: dim, fontSize: 10, fontWeight: FontWeight.w800, letterSpacing: .6))),
-        Positioned(top: 28, right: -19, child: Icon(Icons.catching_pokemon, color: white.withValues(alpha: .035), size: 150)),
+        Positioned(top: 20, right: -19, child: Icon(Icons.catching_pokemon, color: white.withValues(alpha: .035), size: 150)),
         Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Expanded(child: Padding(padding: const EdgeInsets.fromLTRB(14, 22, 14, 0), child: Hero(tag: 'poke-${entry.id}', child: Image.network(art(entry.id), fit: BoxFit.contain,
             errorBuilder: (_, __, ___) => const Center(child: Icon(Icons.catching_pokemon, color: dim, size: 55)))))),
