@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 // POKÉDEX NOIR — Dark editorial redesign. Only dependency: http.
-const bg = Color(0xFF0B1020);
 const panel = Color(0xFF151D30);
 const panel2 = Color(0xFF1B263B);
 const white = Color(0xFFF7F9FF);
