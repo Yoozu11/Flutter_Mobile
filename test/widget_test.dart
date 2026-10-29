@@ -8,23 +8,40 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:minipokedex/pages/animation_page.dart';
 import 'package:minipokedex/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('Pokédex Noir displays its explore screen', (
+    WidgetTester tester,
+  ) async {
+    await tester.pumpWidget(const NoirApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    expect(find.text('POKÉDEX'), findsOneWidget);
+    expect(find.text('Pokémon,\nreimagined.'), findsOneWidget);
+    expect(find.byType(TextField), findsOneWidget);
+  });
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
+  testWidgets('Animation Lab demonstrates animated widgets', (
+    WidgetTester tester,
+  ) async {
+    await tester.pumpWidget(const MaterialApp(home: AnimationPage()));
+
+    expect(find.text('Animation Lab'), findsOneWidget);
+    expect(find.byType(AnimatedContainer), findsOneWidget);
+
+    await tester.tap(find.text('Ubah ukuran & warna'));
     await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    expect(
+      tester
+          .widget<AnimatedContainer>(find.byType(AnimatedContainer))
+          .constraints
+          ?.maxWidth,
+      220,
+    );
+    expect(find.byType(AnimatedOpacity), findsOneWidget);
+    expect(find.byType(AnimatedCrossFade), findsOneWidget);
+    expect(find.byKey(const ValueKey('controller-pulse')), findsOneWidget);
   });
 }
